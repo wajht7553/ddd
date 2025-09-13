@@ -1,0 +1,33 @@
+# Data directories
+data/
+*.h5
+*.npz
+*.npy
+*.csv
+*.pth
+
+# Cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.cache/
+.cache/*
+*.cache
+*.joblib
+*.pickle
+*.pkl
+
+# Output directories
+outputs/
+output/
+logs/
+checkpoints/
+*.log
+
+# Jupyter/IPython checkpoints
+.ipynb_checkpoints/
+
+# Misc
+.DS_Store
+Thumbs.db
