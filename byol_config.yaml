@@ -1,0 +1,22 @@
+# BYOL training configuration
+train_data_dir: data/ssl_dataset/train
+val_data_dir: data/ssl_dataset/validation
+output_dir: outputs/byol
+backbone: resnet18
+input_size: 224
+epochs: 100
+batch_size: 64
+learning_rate: 0.0003
+weight_decay: 0.000001
+num_workers: 4
+seed: 42
+min_scale: 0.2
+cj_prob: 0.8
+cj_bright: 0.4
+cj_contrast: 0.4
+cj_sat: 0.2
+cj_hue: 0.1
+gaussian_blur_prob: 0.1
+solarization_prob: 0.2
+save_every: 10
+device: auto
