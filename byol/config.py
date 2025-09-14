@@ -1,5 +1,4 @@
 import yaml
-import sys
 import argparse
 
 
