@@ -3,10 +3,9 @@ Complete pipeline script to run BYOL self-supervised learning.
 This script orchestrates the entire process from dataset preparation to evaluation.
 """
 
-import os
-import subprocess
-import sys
+
 import argparse
+import subprocess
 from pathlib import Path
 
 

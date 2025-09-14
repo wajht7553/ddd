@@ -1,5 +1,6 @@
 # Data directories
 data/
+ssl_dataset/
 *.h5
 *.npz
 *.npy

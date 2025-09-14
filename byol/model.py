@@ -91,7 +91,7 @@ class BYOL(nn.Module):
         return features
 
 
-def create_byol_model(backbone_name="resnet18", pretrained=False, **kwargs):
+def create_byol_model(backbone_name="resnet18", pretrained=None, **kwargs):
     """
     Create a BYOL model with specified backbone.
 

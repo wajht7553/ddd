@@ -1,11 +1,7 @@
-"""
-Dataset preparation script for BYOL self-supervised learning.
-Creates train/validation splits for SSL pretraining.
-"""
-
-import shutil
-from pathlib import Path
 import random
+import shutil
+
+from pathlib import Path
 
 
 def prepare_ssl_dataset(train_val_split=0.9, seed=42):
@@ -77,42 +73,3 @@ def prepare_ssl_dataset(train_val_split=0.9, seed=42):
     print(f"SSL validation dataset: {ssl_val_dir}")
 
     return ssl_train_dir, ssl_val_dir
-
-
-def create_unified_directories(ssl_train_dir, ssl_val_dir):
-    """
-    Create unified directories for PyTorch ImageFolder compatibility.
-    Each directory contains all images in a single folder (no subdirectories).
-    """
-    # Create unified directories
-    train_unified_dir = ssl_train_dir.parent / "train_unified"
-    val_unified_dir = ssl_val_dir.parent / "val_unified"
-
-    train_unified_dir.mkdir(exist_ok=True)
-    val_unified_dir.mkdir(exist_ok=True)
-
-    # Move training images to unified directory
-    for img_file in ssl_train_dir.glob("*.jpg"):
-        shutil.move(str(img_file), str(train_unified_dir / img_file.name))
-
-    # Move validation images to unified directory
-    for img_file in ssl_val_dir.glob("*.jpg"):
-        shutil.move(str(img_file), str(val_unified_dir / img_file.name))
-
-    # Remove empty directories
-    ssl_train_dir.rmdir()
-    ssl_val_dir.rmdir()
-
-    print("Created unified directories:")
-    print(f"  Training: {train_unified_dir}")
-    print(f"  Validation: {val_unified_dir}")
-
-    return train_unified_dir, val_unified_dir
-
-
-if __name__ == "__main__":
-    ssl_train_dir, ssl_val_dir = prepare_ssl_dataset()
-    # train_unified_dir, val_unified_dir = create_unified_directories(
-    #     ssl_train_dir, ssl_val_dir
-    # )
-    print("Dataset preparation completed successfully!")
