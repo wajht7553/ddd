@@ -31,3 +31,6 @@ checkpoints/
 # Misc
 .DS_Store
 Thumbs.db
+
+# temp files
+temp.*
