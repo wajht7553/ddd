@@ -5,7 +5,7 @@ import argparse
 from byol.config import load_config
 from byol.trainer import BYOLTrainer
 from byol.model import create_byol_model
-from byol.data import create_data_loaders
+from byol.data import create_ssldata_loaders
 
 
 def main():
@@ -92,8 +92,8 @@ def main():
         "solarization_prob": 0.2,
         "save_every": 10,
         "device": "auto",
-        "resume": False, # Caution: Don't change this here
-        "checkpoint": None, # Caution: When you specify a checkpoint, make sure to pass --resume flag from command line
+        "resume": False,  # Caution: Don't change this here
+        "checkpoint": None,  # Caution: When you specify a checkpoint, make sure to pass --resume flag from command line
     }
 
     args = load_config(default_config, cli_args)
@@ -113,7 +113,7 @@ def main():
         torch.cuda.manual_seed(args.seed)
 
     # Create data loaders
-    train_loader, val_loader = create_data_loaders(args)
+    train_loader, val_loader = create_ssldata_loaders(args)
 
     # Create model
     model = create_byol_model(

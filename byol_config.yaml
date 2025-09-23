@@ -4,7 +4,7 @@ val_data_dir: data/ssl_dataset/validation
 output_dir: outputs/byol
 backbone: resnet18
 input_size: 224
-epochs: 5
+epochs: 40
 batch_size: 256
 learning_rate: 0.0003
 weight_decay: 0.000001
@@ -18,7 +18,7 @@ cj_sat: 0.2
 cj_hue: 0.1
 gaussian_blur_prob: 0.1
 solarization_prob: 0.2
-save_every: 10
+save_every: 1
 device: auto
 resume: False # Caution: Don't change this here
 checkpoint: outputs/byol/best_model.pth # Caution: When you specify a checkpoint, make sure to pass --resume flag from command line
